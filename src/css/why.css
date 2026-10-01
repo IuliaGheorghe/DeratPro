@@ -1,2 +1,133 @@
 .why {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-low);
+}
+
+.why::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: 56rem;
+  height: 56rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(31, 163, 127, 0.14), transparent 60%);
+  pointer-events: none;
+}
+
+.why-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 22rem) 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.why-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.why-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface-lowest);
+  border: 1px solid var(--surface-highest);
+  border-radius: var(--radius-lg);
+}
+
+.why-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.75rem 1.75rem 1.5rem;
+}
+
+.why-kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary-2);
+}
+
+.why-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.why-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--on-surface-variant);
+}
+
+.why-foot {
+  margin-top: auto;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-weight: 700;
+  color: #fff;
+}
+
+.why-a .why-foot {
+  background: var(--navy);
+}
+
+.why-b .why-foot {
+  background: var(--navy-2);
+}
+
+.why-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--surface-c);
+}
+
+.why-photo img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.3, 0.6, 0.2, 1);
+}
+
+.why-photo:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 1023px) {
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .why-photo {
+    grid-column: 1 / -1;
+    order: -1;
+    width: 100%;
+    max-width: 28rem;
+    margin-inline: auto;
+  }
+
+  .why-photo img {
+    height: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
 }
