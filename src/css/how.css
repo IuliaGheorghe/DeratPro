@@ -1,2 +1,76 @@
 .how {
+  background: var(--surface);
+}
+
+.how-inner {
+  max-width: 58rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.how-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.how-step {
+  --tone: var(--primary-2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.how-blue {
+  --tone: var(--blue);
+}
+
+.how-navy {
+  --tone: var(--navy);
+}
+
+.how-num {
+  position: relative;
+  z-index: 1;
+  margin-left: 2.2rem;
+  margin-bottom: -0.25em;
+  font-size: clamp(4rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--tone);
+}
+
+.how-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2.25rem 2.5rem 2.25rem;
+  background: var(--surface-lowest);
+  border: 1px solid var(--surface-highest);
+  border-left: 3px solid var(--tone);
+  border-radius: var(--radius-lg);
+}
+
+.how-box h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.how-box p {
+  color: var(--on-surface-variant);
+}
+
+@media (max-width: 640px) {
+  .how-box {
+    padding: 2rem 1.5rem 1.75rem;
+  }
+
+  .how-num {
+    margin-left: 1rem;
+  }
 }
