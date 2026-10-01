@@ -1,2 +1,135 @@
 .services {
+  background: var(--surface);
+}
+
+.services-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.services-head {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem 4rem;
+  align-items: end;
+}
+
+.services-lead {
+  max-width: 34rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  --tone: var(--primary-2);
+  --tone-soft: #e2f6ee;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.2rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-lowest);
+  border: 1px solid var(--surface-highest);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.3s;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--tone);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+
+.service-card:hover {
+  border-color: color-mix(in srgb, var(--tone) 30%, transparent);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card.tone-blue {
+  --tone: var(--blue);
+  --tone-soft: var(--blue-soft);
+}
+
+.service-icon {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 0.75rem;
+  color: var(--tone);
+  background: var(--tone-soft);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.service-icon svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.service-card:hover .service-icon {
+  color: #fff;
+  background: var(--tone);
+}
+
+.service-card h3 {
+  margin-top: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.service-card p,
+.service-card ul li {
+  font-size: 0.925rem;
+  color: var(--on-surface-variant);
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--surface-c);
+  font-size: 0.875rem;
+  color: var(--on-surface);
+}
+
+.service-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.service-card li::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-top: 0.5em;
+  border-radius: 50%;
+  background: var(--tone);
+}
+
+@media (max-width: 960px) {
+  .services-head,
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }
