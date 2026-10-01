@@ -1,3 +1,38 @@
+:root {
+  --primary: #005f49;
+  --primary-2: #0d7a5f;
+  --primary-fixed: #98f4d3;
+  --primary-fixed-dim: #7cd8b8;
+  --secondary: #515f7a;
+  --blue: #1f63d6;
+  --blue-soft: #e3edff;
+  --navy: #0f1e36;
+  --navy-2: #162a4a;
+  --brand-green: #1fa37f;
+  --secondary-container: #cfddfd;
+  --tertiary: #814400;
+  --surface: #f9f9ff;
+  --surface-lowest: #ffffff;
+  --surface-low: #f0f3ff;
+  --surface-c: #e7eeff;
+  --surface-high: #dee9ff;
+  --surface-highest: #d8e3f9;
+  --on-surface: #111c2c;
+  --on-surface-variant: #3e4944;
+  --inverse-surface: #263142;
+  --inverse-on-surface: #ebf1ff;
+  --outline: #6e7a74;
+  --outline-variant: #bdc9c2;
+
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+  --radius: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --header-h: 100px;
+}
+
 *,
 *::before,
 *::after {
@@ -6,9 +41,17 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font);
   line-height: 1.6;
+  color: var(--on-surface);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -24,4 +67,113 @@ a {
 button {
   font: inherit;
   cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: 3rem;
+  }
+}
+
+.section {
+  padding-block: 6rem;
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 42rem;
+}
+
+.section-head.center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.section-head.center .eyebrow {
+  align-self: center;
+}
+
+.h2 em {
+  font-style: normal;
+  color: var(--primary-2);
+}
+
+.h2 {
+  font-size: clamp(1.875rem, 3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.lead {
+  color: var(--on-surface-variant);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid transparent;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn .arrow {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+.btn-primary:hover {
+  background: var(--primary-2);
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(13, 122, 95, 0.35);
+  outline-offset: 2px;
 }

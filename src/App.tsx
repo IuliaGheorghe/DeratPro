@@ -11,7 +11,7 @@ export default function App() {
     <>
       <Navbar />
       <main>
-        <Hero />
+        <Hero tagline="Deratizare · Dezinsecție · Dezinfecție" />
         <Services />
         <Why />
         <How />

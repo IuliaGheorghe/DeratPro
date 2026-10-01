@@ -1,2 +1,263 @@
 .navbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+}
+
+.topbar {
+  background: var(--inverse-surface);
+  color: rgba(235, 241, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.topbar-inner {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.topbar-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pulse {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary-fixed);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.topbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.topbar-links a:hover {
+  color: #fff;
+}
+
+.topbar-phone {
+  font-weight: 600;
+  color: var(--primary-fixed);
+}
+
+.nav {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(222, 233, 255, 0.6);
+}
+
+.nav-inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand b {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.brand i {
+  width: 6px;
+  height: 6px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  transition: transform 0.2s;
+}
+
+.brand:hover i {
+  transform: scale(1.25);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+}
+
+.nav-links a {
+  padding-block: 0.25rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-urgent {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
+  background: var(--surface-low);
+  color: var(--primary);
+  border: 1px solid rgba(0, 95, 73, 0.2);
+  transition: background-color 0.2s;
+}
+
+.nav-urgent:hover {
+  background: var(--surface-c);
+}
+
+.nav {
+  position: relative;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.6rem;
+  border: 1px solid var(--surface-high);
+  border-radius: 0.4rem;
+  background: var(--surface-lowest);
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--on-surface);
+  transition: transform 0.25s, opacity 0.2s;
+}
+
+.navbar.is-open .nav-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar.is-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar.is-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-mobile {
+  position: absolute;
+  inset: 100% 0 auto;
+  background: var(--surface-lowest);
+  border-bottom: 1px solid var(--surface-high);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+}
+
+.navbar.is-open .nav-mobile {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.nav-mobile-inner {
+  display: flex;
+  flex-direction: column;
+  padding-block: 0.5rem 1.25rem;
+}
+
+.nav-mobile-inner a {
+  padding-block: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--surface-c);
+}
+
+.nav-mobile-inner a:last-child{
+  border: none;
+  padding-bottom: 0;
+}
+
+.nav-mobile-inner .nav-mobile-call {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border: 0;
+  border-radius: 0.75rem;
+  text-align: center;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: #fff;
+  background: var(--primary);
+}
+
+@media (max-width: 991px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .topbar-mail {
+    display: none;
+  }
+}
+
+@media (max-width: 574.98px) {
+  :root {
+    --header-h: 64px;
+  }
+
+  .topbar {
+    display: none;
+  }
+}
+
+@media (max-width: 389.98px) {
+  .nav-urgent {
+    display: none;
+  }
 }
