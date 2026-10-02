@@ -114,7 +114,6 @@ export default function Contact() {
         <div className="contact-card" data-aos="fade-left" data-aos-delay="100">
           <div className="contact-card-head">
             <h3>Cere o inspecție gratuită</h3>
-            <p>Durează sub un minut. Câmpurile marcate cu * sunt obligatorii.</p>
           </div>
 
           <form className="contact-form" onSubmit={submit} noValidate>

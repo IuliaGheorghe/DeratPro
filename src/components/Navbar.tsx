@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="container topbar-inner">
           <div className="topbar-status">
             <span className="pulse" />
-            <span>Dispecerat activ · răspundem rapid</span>
+            <span>Răspundem rapid</span>
           </div>
           <div className="topbar-links">
             <a className="topbar-mail" href={`mailto:${site.email}`}>
